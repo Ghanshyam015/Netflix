@@ -1,0 +1,29 @@
+flowchart TD
+    %% External Entities
+    User[Student / User]
+    Admin[Administrator]
+    PG[Payment Gateway]
+    
+    %% Central Process
+    System((0.0\nNetflix Clone & \nE-Learning System))
+    
+    %% Data Flows
+    User -- Registration / Login Details --> System
+    User -- Search / Watch Requests --> System
+    User -- Payment Information --> System
+    
+    System -- Video Stream & Course Content --> User
+    System -- Subscription Status --> User
+    System -- User Progress & Dashboards --> User
+    
+    Admin -- Upload Movies & Courses --> System
+    Admin -- Admin Login Credentials --> System
+    System -- Traffic & Payment Reports --> Admin
+    
+    System -- Payment Request --> PG
+    PG -- Payment Success/Failure Status --> System
+
+    classDef entity fill:#f9f,stroke:#333,stroke-width:2px;
+    classDef process fill:#bbf,stroke:#333,stroke-width:2px,shape:circle;
+    class User,Admin,PG entity;
+    class System process;
